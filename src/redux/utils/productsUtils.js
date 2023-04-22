@@ -9,7 +9,7 @@ export const addAProduct = (cart, product) => {
     return [...cart, { ...product, quantity: 1 }];
 };
 
-//funcion para eliminar un producto del carrito
+//funcion para eliminar un producto del carrito segun su id
 export const removeAProduct = (cart, product) => {
     const productExists = cart.find((item) => item.id === product.id);
     if (productExists.quantity === 1) {
@@ -20,12 +20,12 @@ export const removeAProduct = (cart, product) => {
     );
 };
 
-//funcion para calcular el total del carrito
+//funcion para obtener el total de los productos en el carrito
 export const getTotal = (cart) => {
     return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 };
 
-//funcion para calcular el total de productos en el carrito
+//funcion para obtener la cantidad total de productos en el carrito
 export const getTotalItems = (cart) => {
     return cart.reduce((acc, item) => acc + item.quantity, 0);
 };

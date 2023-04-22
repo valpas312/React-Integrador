@@ -1,5 +1,4 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Products from "./components/Products";
 import Router from "./components/Router";
 
 const App = () => {
@@ -7,7 +6,6 @@ const App = () => {
     <>
       <ChakraProvider>
         <Router/>
-        <Products/>
       </ChakraProvider>
     </>
   );

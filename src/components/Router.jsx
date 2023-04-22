@@ -1,13 +1,16 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import NavBar from './NavBar'
-import Products from './Products'
+import Products from '../pages/Products'
+import Home from '../pages/Home'
+import Cart from '../pages/Cart'
 
 const Router = () => {
   return <BrowserRouter>
     <NavBar />
     <Routes>
-      <Route path="/" element={<Products/>} />
-      <Route path="/cart" element={<h1>Cart</h1>} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/products" element={<Products/>} />
+      <Route path="/cart" element={<Cart/>} />
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   </BrowserRouter>
