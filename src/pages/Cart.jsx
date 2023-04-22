@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from "react-redux"
-import { Box} from "@chakra-ui/react"
-import { removeProductFromCart } from "../redux/slices/productsSlice"
+import { Box, Button, ButtonGroup, Text} from "@chakra-ui/react"
+import { removeProductFromCart, clearCart } from "../redux/slices/productsSlice"
+import CartCard from "../components/CartCard"
 
 const Cart = () => {
 
   const cart = useSelector((state) => state.products.cart)
   const dispatch = useDispatch()
-
-  console.log(cart)
+  const total = useSelector((state) => state.products.totalCartPrice)
 
   return <Box
     display="flex"
@@ -18,16 +18,20 @@ const Cart = () => {
     gap="3rem"
   >
     {
+      cart.length === 0 ? <h1>Cart is empty</h1> :
       cart.map(product => {
-        const { id, name, price, quantity } = product
-        return <div key={id} >
-          <h2>{name}</h2>
-          <h3>{price}</h3>
-          <h4>{quantity}</h4>
-          <button onClick={() => dispatch(removeProductFromCart(product))}>Remove</button>
-        </div>
+        return <CartCard
+          key={product.id}
+          {...product}
+          handleRemoveFromCart={() => dispatch(removeProductFromCart(product))}
+        />
       } ) 
     }
+    <ButtonGroup spacing="2">
+      <Button colorScheme="blue">Checkout</Button>
+      <Button colorScheme="red" onClick={() => dispatch(clearCart())}>Clear cart</Button>
+    </ButtonGroup>
+    <Text>Total: ${total}</Text>
   </Box>
 }
 
