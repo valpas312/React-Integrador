@@ -19,7 +19,7 @@ const NavBar = () => {
     mb="2"
   >
     <Button as={Link} to="/products" variant="solid" leftIcon={<MdAttachMoney/>} colorScheme="blue">
-        Products
+        All Products
     </Button>
     <Button as={Link} to="/"  variant="ghost" colorScheme="blue">
         <AiOutlineHome/>

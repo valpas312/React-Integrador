@@ -1,12 +1,13 @@
-import { Box, Text } from "@chakra-ui/react"
+import { Box, Spinner } from "@chakra-ui/react"
 import { useQuery } from "@tanstack/react-query"
 import { useAxios } from "../hooks/useAxios"
 import { useDispatch } from "react-redux"
 import { setProducts } from "../redux/slices/productsSlice"
+import Recommended from "../components/Recommended"
 
 const Home = () => {
 
-  const { data} = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ["products"],
     queryFn: () =>
       useAxios.get("/products")
@@ -22,7 +23,9 @@ const Home = () => {
     alignItems="center"
     h="100%"
   >
-    <Text>Home</Text>
+    {
+       isFetching ? <Spinner /> : <Recommended />
+    }
   </Box>
 }
 

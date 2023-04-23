@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Box, Button, ButtonGroup, Text} from "@chakra-ui/react"
 import { removeProductFromCart, clearCart } from "../redux/slices/productsSlice"
 import CartCard from "../components/CartCard"
+import { Link } from "react-router-dom"
 
 const Cart = () => {
 
@@ -28,10 +29,10 @@ const Cart = () => {
       } ) 
     }
     <ButtonGroup spacing="2">
-      <Button colorScheme="blue">Checkout</Button>
+      <Button colorScheme="blue" as={Link} to={"/checkout"} >Checkout</Button>
       <Button colorScheme="red" onClick={() => dispatch(clearCart())}>Clear cart</Button>
     </ButtonGroup>
-    <Text>Total: ${total}</Text>
+    <Text>Total: ${total.toFixed(2)}</Text>
   </Box>
 }
 

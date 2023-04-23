@@ -29,3 +29,11 @@ export const getTotal = (cart) => {
 export const getTotalItems = (cart) => {
     return cart.reduce((acc, item) => acc + item.quantity, 0);
 };
+
+//funcion para obtener productos recomendados randoms
+export const getRecommendedProducts = (products) => {
+    return products
+        .map((product) => ({ ...product, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .slice(0, 4);
+};

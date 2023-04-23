@@ -1,5 +1,5 @@
 //importacion de utils
-import { addAProduct, removeAProduct, getTotal, getTotalItems } from '../utils/productsUtils';
+import { addAProduct, removeAProduct, getTotal, getTotalItems, getRecommendedProducts } from '../utils/productsUtils';
 
 //creacion de slice para manejar el estado de los productos
 import { createSlice } from '@reduxjs/toolkit';
@@ -10,6 +10,7 @@ const initialState = {
     totalCartPrice: 0,
     totaCartlItems: 0,
     cart: [],
+    recommendedProducts: [],
 };
 
 const productsSlice = createSlice({
@@ -18,6 +19,7 @@ const productsSlice = createSlice({
     reducers: {
         setProducts: (state, action) => {
             state.products = action.payload;
+            state.recommendedProducts = getRecommendedProducts(action.payload);
         },
         setProduct: (state, action) => {
             state.product = action.payload;

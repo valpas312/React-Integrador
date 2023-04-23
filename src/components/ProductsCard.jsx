@@ -35,7 +35,7 @@ const ProductsCard = ({ ...props }) => {
     };
 
   return (
-    <Card w="35vw" h="100%" shadow="md" >
+    <Card minW="400px" maxW="35vw" h="100%" shadow="md" >
       <CardBody>
         <Image src={image} alt={title} w="30%"/>
         <Stack mt="6" spacing="3">
