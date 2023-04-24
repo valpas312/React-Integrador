@@ -7,7 +7,7 @@ const Recommended = () => {
 
   return (
     <Box
-      w="100vw"
+      w="100%"
       display="flex"
       justifyContent="center"
       alignItems="center"

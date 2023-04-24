@@ -6,7 +6,6 @@ import { AiOutlineHome } from 'react-icons/ai'
 
 const NavBar = () => {
   return <ButtonGroup
-    w="100%"
     h="10vh"
     display="flex"
     justifyContent="center"

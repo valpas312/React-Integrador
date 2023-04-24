@@ -16,7 +16,7 @@ const RecommendedCard = ({...props}) => {
     const { title, price, image } = props
 
   return (
-    <Card minW="300px" maxWidth="20vw" >
+    <Card minW="300px" maxWidth="20vw" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)' >
       <CardHeader>
         <Heading size="md">{title}</Heading>
       </CardHeader>

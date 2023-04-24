@@ -6,11 +6,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     products: [],
-    product: {},
     totalCartPrice: 0,
     totaCartlItems: 0,
     cart: [],
     recommendedProducts: [],
+    category: ''
 };
 
 const productsSlice = createSlice({
@@ -20,9 +20,6 @@ const productsSlice = createSlice({
         setProducts: (state, action) => {
             state.products = action.payload;
             state.recommendedProducts = getRecommendedProducts(action.payload);
-        },
-        setProduct: (state, action) => {
-            state.product = action.payload;
         },
         addProductToCart: (state, action) => {
             state.cart = addAProduct(state.cart, action.payload);
@@ -39,8 +36,11 @@ const productsSlice = createSlice({
             state.totalCartPrice = 0;
             state.totaCartlItems = 0;
         },
+        setCategoty: (state, action) => {
+            state.category = action.payload;
+        }
     }
 });
 
 export default productsSlice.reducer;
-export const { setProducts, setProduct, addProductToCart, removeProductFromCart, clearCart } = productsSlice.actions;
+export const { setProducts, setProduct, addProductToCart, removeProductFromCart, clearCart, setCategoty } = productsSlice.actions;

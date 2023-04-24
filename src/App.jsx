@@ -3,11 +3,9 @@ import Router from "./components/Router";
 
 const App = () => {
   return (
-    <>
       <ChakraProvider>
         <Router/>
       </ChakraProvider>
-    </>
   );
 };
 

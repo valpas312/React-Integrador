@@ -35,7 +35,7 @@ const ProductsCard = ({ ...props }) => {
     };
 
   return (
-    <Card minW="400px" maxW="35vw" h="100%" shadow="md" >
+    <Card minW="400px" maxW="35vw" h="100%" shadow="md" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'>
       <CardBody>
         <Image src={image} alt={title} w="30%"/>
         <Stack mt="6" spacing="3">
