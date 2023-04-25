@@ -20,21 +20,25 @@ const Home = () => {
   data && dispatch(setProducts(data.data))
 
   return <Box
-    display="flex"
-    justifyContent="center"
-    alignItems="center"
     h="100%"
     w="100%"
-    flexDirection="column"
-    gap="1rem"
+    textAlign="center"
   >
     {
-       isFetching ? <Spinner /> : (<Box w="90%">
-        <Recommended />
-        <CategoryBar/>
-        <Categories/>
-      </Box>
-       )
+      isFetching
+        ? <Spinner size="xl" />
+        : <Box 
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+            gap="3rem"
+        >
+          <Recommended />
+          <CategoryBar />
+          <Categories />
+        </Box>
     }
   </Box>
 }

@@ -1,20 +1,36 @@
-import { Box } from "@chakra-ui/react"
-import { useSelector } from "react-redux"
+import { Box, Text } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import RecommendedCard from "./RecommendedCard";
 
 const Categories = () => {
+  const products = useSelector((state) => state.products.products);
+  const category = useSelector((state) => state.products.category);
 
-  const products = useSelector(state => state.products.products)
-  const category = useSelector(state => state.products.category)
+  const filteredProducts = products.filter(
+    (product) => product.category === category
+  );
 
-  const filteredProducts = products.filter(product => product.category === category)
+  console.log(filteredProducts);
 
-  console.log(filteredProducts)
+  return (
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexWrap="wrap"
+      gap="3rem"
+    >
+      {
+        filteredProducts.length > 0
+          ? filteredProducts.map((product) => (
+        <RecommendedCard key={product.id} {...product} />
+      ))
+          : <Text fontSize="2xl" fontWeight="bold" mb="2">
+            Please select a category
+          </Text>
+      }
+    </Box>
+  );
+};
 
-  return <Box>
-    {
-      filteredProducts.map(product => <p key={product.id}>{product.title}</p>)
-    }
-  </Box>
-}
-
-export default Categories
+export default Categories;

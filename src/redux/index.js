@@ -11,6 +11,7 @@ import productsSlice from "./slices/productsSlice";
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["products"],
 };
 
 //combine de reducers

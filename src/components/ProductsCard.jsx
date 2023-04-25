@@ -35,9 +35,9 @@ const ProductsCard = ({ ...props }) => {
     };
 
   return (
-    <Card minW="400px" maxW="35vw" h="100%" shadow="md" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'>
+    <Card minW="400px" maxW="35vw" h="100%" shadow="md" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)' bg="#f1f1f1">
       <CardBody>
-        <Image src={image} alt={title} w="30%"/>
+        <Image src={image} alt={title} w="30%" m="0 auto"/>
         <Stack mt="6" spacing="3">
           <Heading size="md">{title}</Heading>
           <Text>{description}</Text>

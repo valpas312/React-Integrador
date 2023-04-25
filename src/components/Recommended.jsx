@@ -12,8 +12,9 @@ const Recommended = () => {
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
+      gap="2rem"
     >
-      <Text fontSize="2xl" fontWeight="bold" mb="2">
+      <Text fontSize="2xl" fontWeight="bold">
         Recommended Products
       </Text>
       <Box

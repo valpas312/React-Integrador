@@ -37,7 +37,7 @@ const productsSlice = createSlice({
             state.totaCartlItems = 0;
         },
         setCategoty: (state, action) => {
-            state.category = action.payload;
+            state.category === action.payload ? state.category = '' : state.category = action.payload;
         }
     }
 });
