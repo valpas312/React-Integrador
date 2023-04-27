@@ -22,7 +22,13 @@ const CategoryBar = () => {
         <Text fontSize="2xl" fontWeight="bold">
             Search by category:
         </Text>
-        <Box>
+        <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexWrap="wrap"
+        gap="2rem"
+        >
         {
             categories.map(category => <Button
             key={category}

@@ -43,22 +43,22 @@ const CartCard = ({ ...props }) => {
     };
 
   return (
-    <Card w="30vw" h="100%" shadow="md" textAlign="center">
+    <Card w="30vw" h="100%" shadow="md" textAlign="center" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)' bg="#f1f1f1">
       <CardBody>
-        <Image src={image} alt={title} w="30%" margin="0 auto"/>
+        <Image src={image} alt={title} w="20%" margin="0 auto"/>
         <Stack mt="6" spacing="3">
-          <Heading size="md">{title}</Heading>
-          <Text color="blue.600" fontSize="2xl">
+          <Heading size="sm">{title}</Heading>
+          <Text color="blue.600" fontSize="xl">
             ${price}
           </Text>
-          <Text color="blue.600" fontSize="2xl">
+          <Text color="blue.600" fontSize="xl">
             {quantity}
           </Text>
         </Stack>
       </CardBody>
       <Divider />
       <CardFooter>
-        <ButtonGroup spacing="2" margin="0 auto">
+        <ButtonGroup display="flex" flexWrap="wrap" alignItems="center" justifyContent="center" m="0 auto">
           <Button variant="solid" colorScheme="red" onClick={() => handleRemoveFromCart(props)}>
             Remove one item
           </Button>
