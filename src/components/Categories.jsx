@@ -10,8 +10,6 @@ const Categories = () => {
     (product) => product.category === category
   );
 
-  console.log(filteredProducts);
-
   return (
     <Box
       display="flex"

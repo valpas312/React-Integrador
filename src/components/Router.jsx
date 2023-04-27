@@ -5,16 +5,21 @@ import Home from '../pages/Home'
 import Cart from '../pages/Cart'
 import Product from '../pages/Product'
 import Checkout from '../pages/Checkout'
+import Login from '../pages/Login'
+import useElement from '../hooks/useElement'
+import Profile from '../pages/Profile'
 
 const Router = () => {
   return <BrowserRouter>
     <NavBar />
     <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/products" element={<Products/>} />
-      <Route path="/products/:productTitle" element={<Product/>} />
-      <Route path="/cart" element={<Cart/>} />
-      <Route path="/checkout" element={<Checkout/>} />
+      <Route path="/" element={useElement(<Home/>, <Login/>)} />
+      <Route path="/products" element={useElement(<Products/>, <Login/>)} />
+      <Route path="/products/:productTitle" element={useElement(<Product/>, <Login/>)}/>
+      <Route path="/cart" element={useElement(<Cart/>, <Login/>)} />
+      <Route path="/checkout" element={useElement(<Checkout/>, <Login/>)} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/profile" element={useElement(<Profile/>, <Login/>)} />
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   </BrowserRouter>

@@ -6,6 +6,7 @@ import persistStore from "redux-persist/es/persistStore";
 
 //import de los reducers
 import productsSlice from "./slices/productsSlice";
+import userSlice from "./slices/userSlice";
 
 //configuracion de redux persist
 const persistConfig = {
@@ -17,6 +18,7 @@ const persistConfig = {
 //combine de reducers
 const reducers = combineReducers({
   products: productsSlice,
+  user: userSlice,
 });
 
 //creacion del store

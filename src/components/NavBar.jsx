@@ -4,8 +4,11 @@ import { MdAttachMoney } from 'react-icons/md'
 import { BsFillCartFill } from 'react-icons/bs'
 import { AiOutlineHome, AiOutlineArrowLeft } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
+import { useDispatch } from 'react-redux'
+import { logout } from '../redux/slices/userSlice'
 
 const NavBar = () => {
+  const dispatch = useDispatch()
   return <ButtonGroup
     h="10vh"
     display="flex"
@@ -18,7 +21,7 @@ const NavBar = () => {
     zIndex="1"
     mb="2"
   >
-    <Button as={Link} to="#" variant="outline" colorScheme="red">
+    <Button variant="outline" colorScheme="red" onClick={() => dispatch(logout())}>
         <AiOutlineArrowLeft/>
         Logout
     </Button>
@@ -31,7 +34,7 @@ const NavBar = () => {
     <Button as={Link} to="/cart" variant="outline" rightIcon={<BsFillCartFill/>} colorScheme="blue">
         Cart
     </Button>
-    <Button as={Link} to="#" variant="outline" colorScheme="blue">
+    <Button as={Link} to="/profile" variant="outline" colorScheme="blue">
         <CgProfile/>
         Profile
     </Button>
