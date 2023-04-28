@@ -16,7 +16,7 @@ const RecommendedCard = ({...props}) => {
     const { title, price, image } = props
 
   return (
-    <GenericCard minW="200px" maxWidth="20vw">
+    <GenericCard minW="200px" maxW="20vw">
       <CardHeader>
         <Heading size="md">{title}</Heading>
       </CardHeader>

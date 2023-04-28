@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import GenericBox from "../components/styles/GenericBox"
-import { Button, Heading, Text } from "@chakra-ui/react"
+import { Heading, Text } from "@chakra-ui/react"
+import CheckoutModal from "../components/styles/CheckoutModal"
 
 const Checkout = () => {
 
@@ -8,16 +9,18 @@ const Checkout = () => {
   const total = useSelector(state => state.products.totalCartPrice)
   const totalItems = useSelector(state => state.products.totalCartItems)
 
-  const shipping = total % totalItems + 5
+  const shipping = totalItems > 5 ? 5 : 10
 
-  return <GenericBox direction="column">
+  return <GenericBox direction="column" bg="gray.200" w="30vw" p="2rem">
     <Heading>Checkout</Heading>
     <GenericBox direction="column">
       {cart.map(product => <Text key={product.id}>{product.title}</Text>)}
       <GenericBox direction="column">
-        <Text>Total: ${total}</Text>
         <Text>Shipping: ${shipping}</Text>
-        <Button colorScheme="teal">Checkout</Button>
+        <Text>Subtotal: ${total}</Text>
+        <Text>Total: ${total + shipping}</Text>
+        {/* Hay que usar un modal aca */}
+        <CheckoutModal/>
       </GenericBox>
     </GenericBox>
   </GenericBox>
