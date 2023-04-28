@@ -1,6 +1,8 @@
-import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react"
+//SELECTOR DE CATEGORIAS
+import { Button, Text } from "@chakra-ui/react"
 import { useSelector, useDispatch} from "react-redux"
 import { setCategoty } from "../redux/slices/productsSlice"
+import GenericBox from "./styles/GenericBox"
 
 const CategoryBar = () => {
 
@@ -9,26 +11,14 @@ const CategoryBar = () => {
     const products = useSelector(state => state.products.products)
     const categoryState = useSelector(state => state.products.category)
 
+    //SE FILTRAN LAS CATEGORIAS CON SET PARA QUE NO SE REPITAN
     const categories = [...new Set(products.map(product => product.category))]
 
-  return <ButtonGroup
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexWrap="wrap"
-        gap="2rem"
-        flexDirection="column"
-  >
+  return <GenericBox direction="column">
         <Text fontSize="2xl" fontWeight="bold">
             Search by category:
         </Text>
-        <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexWrap="wrap"
-        gap="2rem"
-        >
+        <GenericBox>
         {
             categories.map(category => <Button
             key={category}
@@ -36,8 +26,8 @@ const CategoryBar = () => {
             colorScheme={categoryState === category ? 'blue' : 'gray'}
             >{category}</Button>)
         }
-        </Box>
-   </ButtonGroup>
+        </GenericBox>
+   </GenericBox>
 }
 
 export default CategoryBar

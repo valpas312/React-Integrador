@@ -1,25 +1,18 @@
 import { useSelector } from "react-redux";
 import ProductsCard from "../components/ProductsCard";
-import { Box } from "@chakra-ui/react";
+import GenericBox from "../components/styles/GenericBox";
 
 const Products = () => {
 
     const products = useSelector((state) => state.products.products);
 
-    return <Box
-    display="flex"
-    justifyContent="center"
-    alignItems="center"
-    h="100%"
-    flexWrap="wrap"
-    gap="3rem"
-    >
+    return <GenericBox>
     {
         products.length > 0 && products.map((product) => (
             <ProductsCard key={product.id} {...product} />
         ))
     }
-  </Box>
+  </GenericBox>
 }
 
 export default Products

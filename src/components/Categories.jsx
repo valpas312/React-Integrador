@@ -1,6 +1,8 @@
-import { Box, Text } from "@chakra-ui/react";
+//PRODUCTOS POR CATEGORÍA
+import { Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import RecommendedCard from "./RecommendedCard";
+import GenericBox from "./styles/GenericBox";
 
 const Categories = () => {
   const products = useSelector((state) => state.products.products);
@@ -11,13 +13,7 @@ const Categories = () => {
   );
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      flexWrap="wrap"
-      gap="2rem"
-    >
+    <GenericBox direction="column">
       {filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
           <RecommendedCard key={product.id} {...product} />
@@ -25,7 +21,7 @@ const Categories = () => {
       ) : (
         <Text>No products in this category</Text>
       )} 
-    </Box>
+    </GenericBox>
   );
 };
 

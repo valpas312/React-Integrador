@@ -6,6 +6,7 @@ import { setProducts } from "../redux/slices/productsSlice"
 import Recommended from "../components/Recommended"
 import CategoryBar from "../components/CategoryBar"
 import Categories from "../components/Categories"
+import GenericBox from "../components/styles/GenericBox"
 
 const Home = () => {
 
@@ -27,18 +28,11 @@ const Home = () => {
     {
       isFetching
         ? <Spinner size="xl" />
-        : <Box 
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            gap="2rem"
-        >
+        : <GenericBox direction="column">
           <Recommended />
           <CategoryBar />
           <Categories />
-        </Box>
+        </GenericBox>
     }
   </Box>
 }

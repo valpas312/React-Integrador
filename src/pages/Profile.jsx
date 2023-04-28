@@ -1,5 +1,6 @@
 import { Box, Heading, Text } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
+import GenericBox from "../components/styles/GenericBox"
 
 const Profile = () => {
 
@@ -7,13 +8,13 @@ const Profile = () => {
 
   const { username, email } = user
 
-  return <Box>
+  return <GenericBox>
     <Heading>Profile</Heading>
     <Box>
       <Text>Name: {username}</Text>
       <Text>Email: {email}</Text>
       </Box>
-  </Box>
+  </GenericBox>
 }
 
 export default Profile

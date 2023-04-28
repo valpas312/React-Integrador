@@ -1,5 +1,4 @@
 import {
-  Card,
   CardHeader,
   CardBody,
   CardFooter,
@@ -9,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
+import GenericCard from "./styles/GenericCard";
 
 const RecommendedCard = ({...props}) => {
 
@@ -16,7 +16,7 @@ const RecommendedCard = ({...props}) => {
     const { title, price, image } = props
 
   return (
-    <Card minW="250px" maxWidth="15vw" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)' bg="#f1f1f1" >
+    <GenericCard minW="250px" maxWidth="15vw">
       <CardHeader>
         <Heading size="md">{title}</Heading>
       </CardHeader>
@@ -27,7 +27,7 @@ const RecommendedCard = ({...props}) => {
       <CardFooter m="0 auto">
         <Button as={Link} to={`/products/${title}`} variant="solid" bg="gray.300" >View here</Button>
       </CardFooter>
-    </Card>
+    </GenericCard>
   );
 };
 

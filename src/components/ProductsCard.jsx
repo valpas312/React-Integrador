@@ -1,12 +1,10 @@
 import {
   Button,
   ButtonGroup,
-  Card,
   CardBody,
   CardFooter,
   Divider,
   Heading,
-  Image,
   Stack,
   Text,
   useToast
@@ -15,6 +13,9 @@ import {
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../redux/slices/productsSlice";
 import { Link } from "react-router-dom";
+import CardAccordion from "./styles/CardAccordion";
+import CardModal from "./styles/CardModal";
+import GenericCard from "./styles/GenericCard";
 
 const ProductsCard = ({ ...props }) => {
   // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -22,8 +23,10 @@ const ProductsCard = ({ ...props }) => {
 
     const dispatch = useDispatch();
 
+    //TOASYT DE CHAKRA UI
     const toast = useToast();
 
+    //HANDLER PARA AGREGAR PRODUCTOS AL CARRITO
     const handleAddToCart = (props) => {
         dispatch(addProductToCart(props));
         toast({
@@ -35,12 +38,12 @@ const ProductsCard = ({ ...props }) => {
     };
 
   return (
-    <Card minW="300px" maxW="25vw" h="100%" shadow="md" _hover={{shadow:"xl"}} transition='all 0.2s cubic-bezier(.08,.52,.52,1)' bg="#f1f1f1">
+    <GenericCard>
       <CardBody>
-        <Image src={image} alt={title} w="30%" m="0 auto"/>
+        <CardModal image={image} title={title} />
         <Stack mt="6" spacing="3">
           <Heading size="md">{title}</Heading>
-          <Text>{description}</Text>
+          <CardAccordion description={description} />
           <Text color="blue.600" fontSize="2xl">
             ${price}
           </Text>
@@ -57,7 +60,7 @@ const ProductsCard = ({ ...props }) => {
           </Button>
         </ButtonGroup>
       </CardFooter>
-    </Card>
+    </GenericCard>
   );
 };
 
