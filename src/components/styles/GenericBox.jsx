@@ -2,7 +2,7 @@
 import { Box } from "@chakra-ui/react"
 
 // eslint-disable-next-line react/prop-types
-const GenericBox = ({children, direction}) => {
+const GenericBox = ({children, direction, w}) => {
   return <Box
         display="flex"
         justifyContent="center"
@@ -10,6 +10,7 @@ const GenericBox = ({children, direction}) => {
         flexWrap="wrap"
         gap="2rem"
         flexDirection={direction ? direction : null}
+        w={ w ? w : null}
   >
     {children}
   </Box>

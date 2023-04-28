@@ -16,13 +16,13 @@ const RecommendedCard = ({...props}) => {
     const { title, price, image } = props
 
   return (
-    <GenericCard minW="250px" maxWidth="15vw">
+    <GenericCard minW="200px" maxWidth="20vw">
       <CardHeader>
         <Heading size="md">{title}</Heading>
       </CardHeader>
       <CardBody display="flex" flexDirection="column" gap="1em">
         <Heading size="sm">${price}</Heading>
-        <Image src={image} alt={title} w="40%" m="0 auto" />
+        <Image src={image} alt={title} w="30%" m="0 auto" />
       </CardBody>
       <CardFooter m="0 auto">
         <Button as={Link} to={`/products/${title}`} variant="solid" bg="gray.300" >View here</Button>

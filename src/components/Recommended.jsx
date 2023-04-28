@@ -11,7 +11,7 @@ const Recommended = () => {
       <Text fontSize="2xl" fontWeight="bold">
         Recommended Products
       </Text>
-      <GenericBox>
+      <GenericBox w="100%">
         {products.map((product) => (
           <RecommendedCard key={product.id} {...product} />
         ))}
