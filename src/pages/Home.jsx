@@ -33,7 +33,7 @@ const Home = () => {
             alignItems="center"
             justifyContent="center"
             textAlign="center"
-            gap="3rem"
+            gap="2rem"
         >
           <Recommended />
           <CategoryBar />

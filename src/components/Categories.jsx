@@ -16,17 +16,15 @@ const Categories = () => {
       justifyContent="center"
       alignItems="center"
       flexWrap="wrap"
-      gap="3rem"
+      gap="2rem"
     >
-      {
-        filteredProducts.length > 0
-          ? filteredProducts.map((product) => (
-        <RecommendedCard key={product.id} {...product} />
-      ))
-          : <Text fontSize="2xl" fontWeight="bold" mb="2">
-            Please select a category
-          </Text>
-      }
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((product) => (
+          <RecommendedCard key={product.id} {...product} />
+        ))
+      ) : (
+        <Text>No products in this category</Text>
+      )} 
     </Box>
   );
 };

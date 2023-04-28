@@ -8,6 +8,7 @@ import Checkout from '../pages/Checkout'
 import Login from '../pages/Login'
 import useElement from '../hooks/useElement'
 import Profile from '../pages/Profile'
+import Register from '../pages/Register'
 
 const Router = () => {
   return <BrowserRouter>
@@ -19,6 +20,7 @@ const Router = () => {
       <Route path="/cart" element={useElement(<Cart/>, <Login/>)} />
       <Route path="/checkout" element={useElement(<Checkout/>, <Login/>)} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>} />
       <Route path="/profile" element={useElement(<Profile/>, <Login/>)} />
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>

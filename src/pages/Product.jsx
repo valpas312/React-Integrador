@@ -12,13 +12,12 @@ const Product = () => {
   const { productTitle } = useParams();
 
   const productData = products.find(
-    (product) => product.title === productTitle
+    (product) => product.title.trim() === productTitle.trim()
   );
 
-  const { title, price, description, image, id } = productData;
-
   const dispatch = useDispatch();
-
+  
+  const { title, price, description, image, id } = productData;
   const handleAddToCart = () => {
     dispatch(addProductToCart(productData));
     toast({
@@ -39,7 +38,7 @@ const Product = () => {
       gap="2rem"
       key={id}
     >
-      <Text fontSize="2xl" fontWeight="bold">
+      <Text fontSize="xl" fontWeight="bold">
         {title}
       </Text>
 
@@ -48,13 +47,14 @@ const Product = () => {
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
-        gap="2rem"
+        gap="2.5rem"
+        w="70%"
       >
-        <Image src={image} alt={title} w="20%" />
+        <Image src={image} alt={title} w="15%" />
         <Text fontSize="xl" fontWeight="bold">
-          {price}
+          ${price}
         </Text>
-        <Text fontSize="xl" fontWeight="bold">
+        <Text fontSize="md">
           {description}
         </Text>
         <Button colorScheme="teal" size="lg" onClick={() => handleAddToCart()}>

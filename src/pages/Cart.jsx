@@ -44,7 +44,9 @@ const Cart = () => {
         gap="1rem"
       >
         <ButtonGroup spacing="2">
-          <Button colorScheme="blue" as={Link} to={"/checkout"}>
+          <Button colorScheme="blue" as={Link} to={"/checkout"}
+          isDisabled={cart.length === 0 ? true : false}
+          >
             Checkout
           </Button>
           <Button colorScheme="red" onClick={() => dispatch(clearCart())}>

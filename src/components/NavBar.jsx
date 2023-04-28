@@ -6,9 +6,13 @@ import { AiOutlineHome, AiOutlineArrowLeft } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 import { useDispatch } from 'react-redux'
 import { logout } from '../redux/slices/userSlice'
+import { useSelector } from 'react-redux'
 
 const NavBar = () => {
   const dispatch = useDispatch()
+
+  const user = useSelector(state => state.user)
+  
   return <ButtonGroup
     h="10vh"
     display="flex"
@@ -21,6 +25,8 @@ const NavBar = () => {
     zIndex="1"
     mb="2"
   >
+  {
+    user.user?.username ? (<>
     <Button variant="outline" colorScheme="red" onClick={() => dispatch(logout())}>
         <AiOutlineArrowLeft/>
         Logout
@@ -38,6 +44,9 @@ const NavBar = () => {
         <CgProfile/>
         Profile
     </Button>
+    </>)
+    : (null)
+  }
   </ButtonGroup>
 }
 
