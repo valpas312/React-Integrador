@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     user: {},
     shippingAddress: {},
+    orders: [],
 };
 
 const userSlice = createSlice({
@@ -19,8 +20,11 @@ const userSlice = createSlice({
         setShippingAddress: (state, action) => {
             state.shippingAddress = action.payload;
         },
+        setOrder: (state, action) => {
+            state.orders.push(action.payload);
+        },
     },
 });
 
-export const { login, logout, setShippingAddress } = userSlice.actions;
+export const { login, logout, setShippingAddress, setOrder } = userSlice.actions;
 export default userSlice.reducer;

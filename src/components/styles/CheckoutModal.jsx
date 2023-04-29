@@ -1,69 +1,55 @@
 import {
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  FormControl,
-  FormLabel,
-  Input,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { setShippingAddress } from "../../redux/slices/userSlice";
+    Button,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    Text,
+    } from "@chakra-ui/react";
 
-import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrder } from "../../redux/slices/userSlice";
+
+import {v4} from 'uuid';
 
 const CheckoutModal = () => {
-  const dispatch = useDispatch();
+    const id = v4()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const shippingAddress = {
-      city: e.target.city.value,
-      address: e.target.address.value,
+    const dispatch = useDispatch()
+
+    const cart = useSelector(state => state.products.cart)
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const handleOnCLick = () => {
+        dispatch(setOrder({id, cart}))
+        onOpen()
     };
-    dispatch(setShippingAddress(shippingAddress));
-  };
+  return <>
+  <Button onClick={() => handleOnCLick()} colorScheme="teal">Checkout</Button>
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  <Modal isOpen={isOpen} onClose={onClose}>
+    <ModalOverlay />
+    <ModalContent>
+      <ModalHeader> Successful purchase </ModalHeader>
+      <ModalCloseButton />
+      <ModalBody>
+        <Text>Your purchase id is: { id } </Text>
+        <Text>You can see your orders on profile page</Text>
+      </ModalBody>
 
-  const initialRef = useRef(null);
-  const finalRef = useRef(null);
-  return (
-    <>
-      <Button onClick={onOpen}>Add shipping address</Button>
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Add a shipping address</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl as="form" onSubmit={handleSubmit}>
-              <FormLabel>City</FormLabel>
-              <Input placeholder="City" id="city" />
-              <FormLabel>Address</FormLabel>
-              <Input placeholder="Address" id="address" />
-              <ModalFooter>
-                <Button colorScheme="blue" mr={3} type="submit">
-                  Save
-                </Button>
-                <Button onClick={onClose}>Cancel</Button>
-              </ModalFooter>
-            </FormControl>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-};
+      <ModalFooter>
+        <Button colorScheme='blue' mr={3} onClick={onClose}>
+          Close
+        </Button>
+      </ModalFooter>
+    </ModalContent>
+  </Modal>
+</>
+}
 
-export default CheckoutModal;
+export default CheckoutModal
