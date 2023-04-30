@@ -38,7 +38,7 @@ const Login = () => {
     mx="auto"
     >
       <Heading as="h1" size="lg" mb="2">
-        Login
+        Log In
       </Heading>
       <FormLabel>Username</FormLabel>
       <Input required type="text" id="username" placeholder="Enter username" mb="2" />
@@ -48,7 +48,7 @@ const Login = () => {
       <Input required type="password" id="password" placeholder="Password" mb="2" />
 
       <Button colorScheme="blue" type="submit" mb="2">
-        Submit
+        Log In
       </Button>
       {/* eslint-disable-next-line react/no-unescaped-entities */}
       <FormLabel>Don't have an account?</FormLabel>
