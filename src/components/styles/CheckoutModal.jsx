@@ -13,6 +13,8 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../redux/slices/userSlice";
+import { clearCart } from "../../redux/slices/productsSlice";
+import { useNavigate } from "react-router-dom";
 
 import {v4} from 'uuid';
 
@@ -25,14 +27,23 @@ const CheckoutModal = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
+    const navigate = useNavigate()
+
     const handleOnCLick = () => {
         dispatch(setOrder({id, cart}))
+        dispatch(clearCart())
         onOpen()
     };
+
+    const handleOnClose = () => {
+        onClose()
+        navigate('/')
+    };
+
   return <>
   <Button onClick={() => handleOnCLick()} colorScheme="teal">Checkout</Button>
 
-  <Modal isOpen={isOpen} onClose={onClose}>
+  <Modal isOpen={isOpen} onClose={handleOnClose}>
     <ModalOverlay />
     <ModalContent>
       <ModalHeader> Successful purchase </ModalHeader>
@@ -43,7 +54,7 @@ const CheckoutModal = () => {
       </ModalBody>
 
       <ModalFooter>
-        <Button colorScheme='blue' mr={3} onClick={onClose}>
+        <Button colorScheme='blue' mr={3} onClick={handleOnClose}>
           Close
         </Button>
       </ModalFooter>
