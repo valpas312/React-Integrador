@@ -9,11 +9,11 @@ const GenericBox = ({children, direction, w, bg, p}) => {
         alignItems="center"
         flexWrap="wrap"
         gap="2rem"
-        flexDirection={direction ? direction : null}
-        w={ w ? w : null}
-        bg={ bg ? bg : null}
-        m={ w ? "0 auto" : null}
-        p={ p ? p : null}
+        flexDirection={direction && direction}
+        w={ w && w}
+        bg={ bg && bg}
+        m={ w && "0 auto"}
+        p={ p && p}
   >
     {children}
   </Box>

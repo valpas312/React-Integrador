@@ -9,12 +9,14 @@ const Profile = () => {
 
   const { username, email } = user
 
+  console.log(orders)
+
   return <GenericBox>
     <Heading>Profile</Heading>
     <Box>
       <Text>Name: {username}</Text>
       <Text>Email: {email}</Text>
-      <Text>Orders: {orders.length}</Text>
+      <Text>Orders: { orders === undefined ? "No orders yet" : orders.length }</Text>
       </Box>
   </GenericBox>
 }
