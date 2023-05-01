@@ -24,7 +24,7 @@ const Checkout = () => {
         <Text fontWeight="semibold" >Subtotal: ${total}</Text>
         <Text fontWeight="semibold" >Total: ${total + shipping}</Text>
         {
-          Object.keys(address).length === 0 ?
+          address === null ||  Object.keys(address).length === 0 ?
             <CheckoutModalAddress />
             : <CheckoutModal/>
         }

@@ -36,6 +36,7 @@ const Login = () => {
     w="70vw"
     h="100%"
     mx="auto"
+    maxW="500px"
     >
       <Heading as="h1" size="lg" mb="2">
         Log In

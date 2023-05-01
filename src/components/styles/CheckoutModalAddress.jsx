@@ -12,6 +12,7 @@ import {
   FormLabel,
   Input,
   useDisclosure,
+  useToast
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { setShippingAddress } from "../../redux/slices/userSlice";
@@ -20,6 +21,7 @@ import { useRef } from "react";
 
 const CheckoutModalAddress = () => {
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +31,13 @@ const CheckoutModalAddress = () => {
     };
     dispatch(setShippingAddress(shippingAddress));
     onClose();
+    toast({
+      title: "Shipping address added.",
+      description: "We've added your shipping address for your next purchase.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,7 +46,7 @@ const CheckoutModalAddress = () => {
   const finalRef = useRef(null);
   return (
     <>
-      <Button onClick={onOpen}>Add shipping address</Button>
+      <Button onClick={onOpen} colorScheme="yellow">Add shipping address</Button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}

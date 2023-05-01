@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../redux/slices/userSlice";
 import { clearCart } from "../../redux/slices/productsSlice";
 import { useNavigate } from "react-router-dom";
+import FormatedDate from "../../utils/FormatedDate";
 
 import {v4} from 'uuid';
 
@@ -30,7 +31,7 @@ const CheckoutModal = () => {
     const navigate = useNavigate()
 
     const handleOnCLick = () => {
-        dispatch(setOrder({id, cart}))
+        dispatch(setOrder({id, cart, date: FormatedDate(), total: cart.reduce((acc, curr) => acc + curr.price, 0)}))
         dispatch(clearCart())
         onOpen()
     };

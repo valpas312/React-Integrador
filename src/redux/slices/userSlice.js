@@ -16,6 +16,7 @@ const userSlice = createSlice({
         logout: (state) => {
             state.user = null;
             state.shippingAddress = null;
+            state.orders = [];
         },
         setShippingAddress: (state, action) => {
             state.shippingAddress = action.payload;
