@@ -13,7 +13,6 @@ const Profile = () => {
   console.log(orders)
 
   return <GenericBox direction="column">
-    <Heading>Profile</Heading>
     <GenericBox direction="column">
     <GenericBox direction="column">
       <Heading>Account Details</Heading>
@@ -22,12 +21,12 @@ const Profile = () => {
     </GenericBox>
     <GenericBox direction="column">
       <Heading>Orders</Heading>
-      <GenericBox direction="column">
+      <GenericBox>
         {orders.map(order => <GenericCard key={order.id}>
-          <Text>Order ID: {order.id}</Text>
+          <Text fontWeight="bold">Order ID: {order.id}</Text>
           <Text>Order Date: {order.date}</Text>
           <Text>Order Items: {order.cart.map(item => <Text key={item.title} >{item.title}</Text>)}</Text>
-          <Text>Order Total: {order.total}</Text>
+          <Text fontWeight="bold">Order Total: ${order.total}</Text>
         </GenericCard>)}
         </GenericBox>
       </GenericBox>

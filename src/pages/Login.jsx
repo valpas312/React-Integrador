@@ -4,11 +4,14 @@ import {
   Input,
   Button,
   Heading,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import AlertLoginRegister from "../components/styles/AlertLoginRegister";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -37,6 +40,7 @@ const Login = () => {
     h="100%"
     mx="auto"
     maxW="500px"
+    gap="1rem"
     >
       <Heading as="h1" size="lg" mb="2">
         Log In
@@ -56,6 +60,10 @@ const Login = () => {
       <Button colorScheme="blue" variant="outline" as={Link} to="/register" >
         Register
       </Button>
+      <Alert status="info" >
+        <AlertIcon/>
+        <AlertLoginRegister/>
+      </Alert>
     </FormControl>
   );
 };

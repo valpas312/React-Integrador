@@ -1,4 +1,6 @@
 import {
+  Alert,
+  AlertIcon,
   Button,
   FormControl,
   FormLabel,
@@ -9,6 +11,7 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { login } from "../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import AlertLoginRegister from "../components/styles/AlertLoginRegister";
 
 const Register = () => {
   const dispatch = useDispatch()
@@ -36,6 +39,7 @@ const Register = () => {
   h="100%"
   mx="auto"
   maxW="500px"
+  gap="1rem"
   >
     <Heading as="h1" size="lg" mb="2">
       Register
@@ -55,6 +59,12 @@ const Register = () => {
     <Button colorScheme="blue" variant="outline" as={Link} to="/login" >
       Log In
     </Button>
+
+    <Alert status="info" >
+        <AlertIcon/>
+        <AlertLoginRegister/>
+      </Alert>
+
   </FormControl>
 }
 
