@@ -60,7 +60,7 @@ const Login = () => {
       <Button colorScheme="blue" variant="outline" as={Link} to="/register" >
         Register
       </Button>
-      <Alert status="info" >
+      <Alert status="info">
         <AlertIcon/>
         <AlertLoginRegister/>
       </Alert>
