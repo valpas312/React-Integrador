@@ -9,6 +9,7 @@ import Login from '../pages/Login'
 import useElement from '../hooks/useElement'
 import Profile from '../pages/Profile'
 import Register from '../pages/Register'
+import Order from '../pages/Order'
 
 const Router = () => {
   return <BrowserRouter>
@@ -19,6 +20,7 @@ const Router = () => {
       <Route path="/products/:productTitle" element={useElement(<Product/>, <Login/>)}/>
       <Route path="/cart" element={useElement(<Cart/>, <Login/>)} />
       <Route path="/checkout" element={useElement(<Checkout/>, <Login/>)} />
+      <Route path="/order/:orderId" element={useElement(<Order/>, <Login/>)} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/profile" element={useElement(<Profile/>, <Login/>)} />

@@ -13,7 +13,7 @@ const Categories = () => {
   );
 
   return (
-    <GenericBox direction="column">
+    <GenericBox>
       {filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
           <RecommendedCard key={product.id} {...product} />

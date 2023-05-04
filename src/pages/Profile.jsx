@@ -1,16 +1,13 @@
 import {Heading, Text } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
 import GenericBox from "../components/styles/GenericBox"
-import GenericCard from "../components/styles/GenericCard"
+import Orders from "../components/Orders"
 
 const Profile = () => {
 
   const user = useSelector((state) => state.user.user)
-  const orders = useSelector((state) => state.user.orders)
 
   const { username, email } = user
-
-  console.log(orders)
 
   return <GenericBox direction="column">
     <GenericBox direction="column">
@@ -21,14 +18,7 @@ const Profile = () => {
     </GenericBox>
     <GenericBox direction="column">
       <Heading>Orders</Heading>
-      <GenericBox>
-        {orders.map(order => <GenericCard key={order.id}>
-          <Text fontWeight="bold">Order ID: {order.id}</Text>
-          <Text>Order Date: {order.date}</Text>
-          <Text>Order Items: {order.cart.map(item => <Text key={item.title} >{item.title}</Text>)}</Text>
-          <Text fontWeight="bold">Order Total: ${order.total}</Text>
-        </GenericCard>)}
-        </GenericBox>
+      <Orders/>
       </GenericBox>
       </GenericBox>
   </GenericBox>
