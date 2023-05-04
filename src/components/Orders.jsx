@@ -2,7 +2,7 @@ import GenericBox from "./styles/GenericBox"
 import { useSelector } from "react-redux"
 import GenericCard from "./styles/GenericCard"
 import { Text, Button } from "@chakra-ui/react"
-import { Link } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 
 const Orders = () => {
 
@@ -14,7 +14,8 @@ const Orders = () => {
     <Text>Order Date: {order.date}</Text>
     <Text>Order Items: {order.cart.length}</Text>
     <Text fontWeight="bold">Order Total: ${order.total}</Text>
-    <Button><Link href={`/order/${order.id}`}>View Order</Link></Button>
+    <Button as={Link} to={`/order/${order.id}`} >View Order</Button>
+    { console.log(order)}
   </GenericCard>)}
   </GenericBox>
 }
