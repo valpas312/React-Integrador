@@ -7,6 +7,9 @@ import GenericCard from "../components/styles/GenericCard"
 const Order = () => {
 
     const orders = useSelector((state) => state.user.orders)
+    const shippingAddress = useSelector((state) => state.user.shippingAddress)
+
+    const { city, address} = shippingAddress
 
     const { orderId } = useParams()
 
@@ -19,6 +22,7 @@ const Order = () => {
         <Text fontWeight="bold">Order ID: {id}</Text>
         <Text>Order Date: {date}</Text>
         <Text>Order Items: {cart.length}</Text>
+        <Text>Shipping Address: {city}, {address}</Text>
         <Text fontWeight="bold">Order Total: ${total}</Text>
         <GenericBox>
             {cart.map(item => <GenericCard display="flex" justifyContent="center" alignItems="center" key={item.id} >

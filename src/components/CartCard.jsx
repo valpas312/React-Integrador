@@ -2,7 +2,6 @@ import {
   Button,
   ButtonGroup,
   CardBody,
-  CardFooter,
   Divider,
   Heading,
   Stack,
@@ -62,13 +61,13 @@ const CartCard = ({ ...props }) => {
         </Stack>
       </CardBody>
       <Divider />
-      <CardFooter>
         <ButtonGroup
           display="flex"
           flexWrap="wrap"
-          alignItems="center"
-          justifyContent="center"
+          justifyContent="space-around"
+          flexDirection="column"
           m="0 auto"
+          p="1rem"
         >
           <Button
             variant="solid"
@@ -85,7 +84,6 @@ const CartCard = ({ ...props }) => {
             Add one item
           </Button>
         </ButtonGroup>
-      </CardFooter>
     </GenericCard>
   );
 };
